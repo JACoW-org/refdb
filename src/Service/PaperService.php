@@ -12,15 +12,23 @@ class PaperService
             $baseUrl = $reference->getConference()->getBaseUrl();
             $paperId = $reference->getPaperId();
 
-            if (!is_null($baseUrl) && !is_null($paperId)) {
+           if (!is_null($baseUrl) && !is_null($paperId)) {
+                // First, attempt to resolve the standard "papers/" path
                 $url = $baseUrl . "papers/" . $paperId . ".pdf";
                 $valid = $this->testUrl($url);
+
+                // Fallback to "pdf/" if the first URL is invalid
+                // Extra condition introduced as new Conferenece Assembly Tool places pdfs in sub directory pdf/ not papers/
+                if (!$valid) {
+                    $url = $baseUrl . "pdf/" . $paperId . ".pdf";
+                    $valid = $this->testUrl($url);
+                }
 
                 if ($valid) {
                     $reference->setPaperUrl($url);
                     $needsUpdate = true;
                 }
-            }
+           }    
         }
         return $needsUpdate;
     }
