@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Conference;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class ConferenceFixtures extends Fixture
@@ -19,7 +19,7 @@ class ConferenceFixtures extends Fixture
         }
     }
 
-    public function load($manager)
+    public function load(ObjectManager $manager): void
     {
         ini_set('memory_limit','2G');
         ini_set('max_execution_time', 600);
