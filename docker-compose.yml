@@ -16,7 +16,6 @@ services:
       FROM_ADDRESS: noreply@localhost
       MAILER_DSN: smtp://mailpit:1025
       SENTRY_DSN: ""
-      JWT_PASSPHRASE: ""
     depends_on:
       db:
         condition: service_healthy
