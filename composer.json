@@ -19,8 +19,8 @@
         "ext-intl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "ext-mysqli": "*",
         "ext-mongodb": "*",
+        "ext-mysqli": "*",
         "doctrine/common": "^3.4",
         "doctrine/doctrine-bundle": "^2.10",
         "doctrine/doctrine-migrations-bundle": "^3.2",
@@ -28,7 +28,6 @@
         "friendsofsymfony/jsrouting-bundle": "^3.2",
         "jms/serializer-bundle": "^5.4",
         "knplabs/knp-paginator-bundle": "^6.3",
-        "lexik/jwt-authentication-bundle": "^2.20",
         "mongodb/mongodb": "^1.15",
         "nyholm/psr7": "^1.5",
         "sentry/sentry-symfony": "^5.0",
@@ -40,6 +39,7 @@
         "symfony/flex": "^2.4",
         "symfony/form": "7.4.*",
         "symfony/framework-bundle": "7.4.*",
+        "symfony/http-client": "7.4.*",
         "symfony/intl": "7.4.*",
         "symfony/mailer": "7.4.*",
         "symfony/monolog-bundle": "^3.8",
@@ -50,8 +50,6 @@
         "symfony/twig-bundle": "7.4.*",
         "symfony/validator": "7.4.*",
         "symfony/yaml": "7.4.*",
-        "symfonycasts/reset-password-bundle": "^1.20",
-        "symfonycasts/verify-email-bundle": "^1.16",
         "twig/extra-bundle": "^3.0",
         "twig/twig": "^3.0"
     },
@@ -64,7 +62,6 @@
     },
     "scripts": {
         "auto-scripts": {
-            "lexik:jwt:generate-keypair": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "cache:clear": "symfony-cmd"

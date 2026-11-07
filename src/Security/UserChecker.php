@@ -16,7 +16,7 @@ class UserChecker implements UserCheckerInterface
         }
 
         if (!$user->isEnabled()) {
-            throw new CustomUserMessageAccountStatusException('Your account is not active yet. Please confirm your email address.');
+            throw new CustomUserMessageAccountStatusException('Your account is disabled. Please contact an administrator.');
         }
     }
 

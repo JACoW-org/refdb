@@ -7,14 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'fos_user')]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface
 {
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
@@ -27,8 +26,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 180)]
     private string $email = '';
 
-    #[ORM\Column(type: 'string')]
-    private string $password = '';
+    #[ORM\Column(type: 'integer', nullable: true, unique: true)]
+    private ?int $indicoId = null;
 
     /**
      * @var string[]
@@ -90,14 +89,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPassword(): string
+    public function getIndicoId(): ?int
     {
-        return $this->password;
+        return $this->indicoId;
     }
 
-    public function setPassword(string $password): self
+    public function setIndicoId(?int $indicoId): self
     {
-        $this->password = $password;
+        $this->indicoId = $indicoId;
 
         return $this;
     }
