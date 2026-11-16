@@ -15,7 +15,7 @@ framework:
     validation: { enable_attributes: true }
     default_locale: 'en'
     trusted_hosts: ~
-    trusted_proxies: '127.0.0.1,10.0.0.0/8'
+    trusted_proxies: '%env(TRUSTED_PROXIES)%'
     trusted_headers: ['x-forwarded-for', 'x-forwarded-host', 'x-forwarded-proto', 'x-forwarded-port', 'x-forwarded-prefix']
     fragments: ~
     http_method_override: true
